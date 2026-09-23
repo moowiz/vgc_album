@@ -155,7 +155,6 @@ img { max-width: 100%; }
 }
 .album[hidden] { display: none; }
 .album.reveal { opacity: 1; transform: none; }
-.album.instant { transition: none; }
 
 .album header { text-align: center; margin-bottom: 40px; }
 .album h1 {

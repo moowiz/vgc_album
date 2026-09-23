@@ -4,9 +4,6 @@
    https://bigwalk.game/faq/#outside-talk-anyway
    ============================================================ */
 
-// The five characters the panel is waiting for. Case doesn't matter.
-const ANSWER = "HONK!";
-
 console.log(
   "%cHey. Reading the source is ❌ NOT ALLOWED ❌.\nGo work with your friends instead!",
   "font: 600 15px/1.5 system-ui, sans-serif; color: #cf5f4b;"
@@ -52,11 +49,18 @@ const click = ()      => tone({ freq: 900, to: 500, type: "triangle", dur: 0.06,
 const ding  = (at)    => { tone({ freq: 784, dur: 0.55, gain: 0.16, at }); tone({ freq: 1175, dur: 0.7, gain: 0.1, at: at + 0.06 }); };
 
 /* ---------------- slot behaviour ---------------- */
+// Write `text` into consecutive slots starting at `from`, then focus the next one.
+function fill(from, text) {
+  for (let k = 0; from + k < slots.length && k < text.length; k++) slots[from + k].value = text[k];
+  slots[Math.min(from + text.length, slots.length - 1)].focus();
+}
+
 slots.forEach((slot, i) => {
   slot.addEventListener("input", () => {
-    const v = slot.value.replace(/\s/g, "").slice(-1).toUpperCase();
-    slot.value = v;
-    if (v && i < slots.length - 1) slots[i + 1].focus();
+    const text = slot.value.replace(/\s/g, "").toUpperCase();
+    if (text.length > 1) { fill(i, text); return; } // several chars at once: spread them out
+    slot.value = text;
+    if (text && i < slots.length - 1) slots[i + 1].focus();
   });
   slot.addEventListener("keydown", (e) => {
     if (e.key === "Backspace" && !slot.value && i > 0) {
@@ -73,9 +77,7 @@ slots.forEach((slot, i) => {
   slot.addEventListener("paste", (e) => {
     e.preventDefault();
     const text = (e.clipboardData || window.clipboardData).getData("text").replace(/\s/g, "").toUpperCase();
-    if (!text) return;
-    for (let k = 0; i + k < slots.length && k < text.length; k++) slots[i + k].value = text[k];
-    slots[Math.min(i + text.length, slots.length - 1)].focus();
+    if (text) fill(i, text);
   });
 });
 
@@ -127,10 +129,8 @@ function unlock() {
   setTimeout(reveal, end + 1000);
 }
 
-function reveal(instant = false) {
-  try { sessionStorage.setItem("vgc-unlocked", "1"); } catch (e) {}
+function reveal() {
   album.hidden = false;
-  if (instant) album.classList.add("instant");
   requestAnimationFrame(() => {
     gate.classList.add("open");
     album.classList.add("reveal");
@@ -139,12 +139,33 @@ function reveal(instant = false) {
   setTimeout(() => {
     gate.remove();
     document.body.classList.remove("locked");
-  }, instant ? 0 : 1000);
+  }, 1000);
 }
 
 /* ---------------- on load ---------------- */
-let alreadyUnlocked = false;
-try { alreadyUnlocked = sessionStorage.getItem("vgc-unlocked") === "1"; } catch (e) {}
+// Nothing is remembered between page loads: every visit starts at the panel.
+slots[0].focus();
 
-if (alreadyUnlocked) reveal(true);
-else slots[0].focus();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------------------
+   Still here? The answer is below. Don't spoil it for yourself.
+   Five characters, case doesn't matter.
+   ------------------------------------------------------------ */
+const ANSWER = "HONK!";
