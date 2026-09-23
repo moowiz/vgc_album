@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#2b3a55"/>
+  <circle cx="276" cy="201" r="81" fill="#f6d36b"/>
+  <path d="M0 535 Q300 435 600 515 T1200 485 V900 H0Z" fill="#4f6b5a"/>
+  <rect y="648" width="1200" height="900" fill="#8a3a2e"/>
+  <text x="600" y="783" font-family="system-ui, sans-serif" font-size="45" font-weight="700" fill="#fff" text-anchor="middle">SCREENSHOT 3 - replace me</text>
+</svg>

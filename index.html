@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hello from the Video Game Club</title>
+<meta name="description" content="A small thank-you album for the makers of Big Walk.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!--
+  ╭────────────────────────────────────────────────────╮
+  │  Hey. Reading the source is ❌ NOT ALLOWED ❌.      │
+  │  Go work with your friends instead!                │
+  │  https://bigwalk.game/faq/#outside-talk-anyway     │
+  ╰────────────────────────────────────────────────────╯
+-->
+</head>
+<body class="locked">
+
+<!-- ================================================================
+     THE GATE: an in-game style terminal with five slots and a button.
+     ================================================================ -->
+<div id="gate" class="gate">
+  <img class="deco"    src="assets/tiles/tile-02.png" alt="" style="top:9%;left:7%;transform:rotate(-14deg)">
+  <img class="deco lg" src="assets/tiles/tile-08.png" alt="" style="top:18%;right:9%;transform:rotate(10deg)">
+  <img class="deco"    src="assets/tiles/tile-09.png" alt="" style="bottom:14%;left:11%;transform:rotate(8deg)">
+  <img class="deco lg" src="assets/tiles/tile-01.png" alt="" style="bottom:22%;right:13%;transform:rotate(-6deg)">
+  <img class="deco lg" src="assets/tiles/tile-06.png" alt="" style="top:52%;left:3%;transform:rotate(18deg)">
+  <img class="deco lg" src="assets/tiles/tile-04.png" alt="" style="top:58%;right:3%;transform:rotate(-20deg)">
+
+  <form class="terminal" id="terminal" autocomplete="off" novalidate>
+    <div class="box">
+      <div class="screen">
+        <div class="slots">
+          <input class="slot" type="text" maxlength="1" inputmode="text" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="·" aria-label="Character 1">
+          <input class="slot" type="text" maxlength="1" inputmode="text" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="·" aria-label="Character 2">
+          <input class="slot" type="text" maxlength="1" inputmode="text" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="·" aria-label="Character 3">
+          <input class="slot" type="text" maxlength="1" inputmode="text" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="·" aria-label="Character 4">
+          <input class="slot" type="text" maxlength="1" inputmode="text" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="·" aria-label="Character 5">
+        </div>
+      </div>
+      <div class="plate">
+        <button type="button" class="btn btn-red" id="clear" aria-label="Clear"></button>
+        <span class="plate-label">Panel 05</span>
+        <button type="submit" class="btn btn-green" id="go" aria-label="Check answer"></button>
+      </div>
+    </div>
+    <div class="post"></div>
+    <div class="foot"></div>
+  </form>
+</div>
+
+<!-- ================================================================
+     THE ALBUM: revealed once the panel is solved.
+     Swap the placeholder images in assets/photos/ for real ones and
+     edit the captions and notes below. Keep it short and sweet.
+     ================================================================ -->
+<main id="album" class="album" hidden>
+  <header>
+    <h1>Thanks for the walk.</h1>
+    <p class="lede">We're the Video Game Club: a handful of friends who meet up to play games together. We spent a few evenings walking, honking, and trying very hard to describe a squiggly e to each other. This is a small thank you.</p>
+  </header>
+
+  <!-- One "here's all of us" photo -->
+  <figure class="hero">
+    <img src="assets/photos/hero.svg" alt="All of us together, waving.">
+    <figcaption>All of us. Hello!</figcaption>
+  </figure>
+
+  <div class="divider" aria-hidden="true">
+    <img src="assets/tiles/tile-07.png" alt=""><img src="assets/tiles/tile-08.png" alt=""><img src="assets/tiles/tile-09.png" alt="">
+  </div>
+
+  <!-- Four to six favourite screenshots -->
+  <section aria-labelledby="photos-h">
+    <h2 id="photos-h">A few favorite moments</h2>
+    <div class="gallery">
+      <figure><img src="assets/photos/photo-1.svg" alt="Placeholder screenshot"><figcaption>Caption goes here.</figcaption></figure>
+      <figure><img src="assets/photos/photo-2.svg" alt="Placeholder screenshot"><figcaption>Caption goes here.</figcaption></figure>
+      <figure><img src="assets/photos/photo-3.svg" alt="Placeholder screenshot"><figcaption>Caption goes here.</figcaption></figure>
+      <figure><img src="assets/photos/photo-4.svg" alt="Placeholder screenshot"><figcaption>Caption goes here.</figcaption></figure>
+      <figure><img src="assets/photos/photo-5.svg" alt="Placeholder screenshot"><figcaption>Caption goes here.</figcaption></figure>
+      <figure><img src="assets/photos/photo-6.svg" alt="Placeholder screenshot"><figcaption>Caption goes here.</figcaption></figure>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <img src="assets/tiles/tile-01.png" alt=""><img src="assets/tiles/tile-02.png" alt=""><img src="assets/tiles/tile-06.png" alt="">
+  </div>
+
+  <!-- A short note from each member -->
+  <section aria-labelledby="notes-h">
+    <h2 id="notes-h">Notes from the club</h2>
+    <div class="notes">
+      <article class="card">
+        <span class="stamp"><img src="assets/tiles/tile-01.png" alt=""></span>
+        <h3>Stephen</h3>
+        <p>Your note goes here. Two or three sentences is plenty: a favorite moment, a thing that made you laugh, a thank you.</p>
+      </article>
+      <article class="card">
+        <span class="stamp"><img src="assets/tiles/tile-05.png" alt=""></span>
+        <h3>Aaron</h3>
+        <p>Your note goes here. Two or three sentences is plenty: a favorite moment, a thing that made you laugh, a thank you.</p>
+      </article>
+      <article class="card">
+        <span class="stamp"><img src="assets/tiles/tile-09.png" alt=""></span>
+        <h3>Wei</h3>
+        <p>Your note goes here. Two or three sentences is plenty: a favorite moment, a thing that made you laugh, a thank you.</p>
+      </article>
+      <article class="card">
+        <span class="stamp"><img src="assets/tiles/tile-03.png" alt=""></span>
+        <h3>Tim</h3>
+        <p>Your note goes here. Two or three sentences is plenty: a favorite moment, a thing that made you laugh, a thank you.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer>Made with love, and a lot of gesturing, by the Video Game Club. 2026.</footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
